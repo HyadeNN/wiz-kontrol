@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "wizkontrol"
+dynamic = ["version"]
+description = "Philips WiZ smart bulb controller for Windows — local network, no cloud."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+dependencies = [
+    "customtkinter>=5.2",
+    "pystray>=0.19",
+    "Pillow>=10.0",
+]
+classifiers = [
+    "Operating System :: Microsoft :: Windows",
+    "Programming Language :: Python :: 3",
+    "Topic :: Home Automation",
+    "Environment :: Win32 (MS Windows)",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.6", "pyinstaller>=6"]
+
+[project.gui-scripts]
+wizkontrol = "wizkontrol.app:main"
+
+[tool.setuptools]
+packages = ["wizkontrol"]
+
+[tool.setuptools.dynamic]
+version = { attr = "wizkontrol.__version__" }
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+ignore = ["E731"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
