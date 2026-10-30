@@ -4,5 +4,5 @@ Ampullerle yerel ağ üzerinden (UDP 38899) doğrudan konuşur; bulut veya hesap
 WiZ uygulamasında Ayarlar > Güvenlik > "Yerel iletişime izin ver" açık olmalıdır.
 """
 
-__version__ = "1.0.0"
+__version__ = "1.1.0"
 APP_NAME = "WiZ Kontrol"

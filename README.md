@@ -30,14 +30,16 @@ WiZ has apps for Android and iOS, but **nothing official for Windows** — and w
 |---|---|
 | 💡 **Power & brightness** | One switch, one slider (10–100 %). Changes land in milliseconds. |
 | 🌡️ **Tunable white** | 2200 K – 6500 K slider with a live temperature gradient, plus *Candle / Warm / Natural / Daylight / Cool* presets. |
-| 🎨 **Full-color wheel** | Hue + saturation wheel and quick swatches. Pastels use the bulb's cold-white channel, so they look clean instead of washed-out. |
-| ✨ **35 built-in scenes** | Ocean, Fireplace, Party, Sunset, Christmas, … each tile is drawn as a **gradient of the colors that scene cycles through, weighted by how long each color stays on**. Adjustable speed. |
-| ⭐ **Favorites** | Save the current light in one click. Name it, or leave the name empty and it's named for you (e.g. *Fireplace*, *Warm 2700 K*, *Light blue*). |
+| 🎨 **Full-color wheel** | Hue + saturation wheel, quick swatches and exact `#RRGGBB` input. Pastels use the bulb's cold-white channel, so they look clean instead of washed-out. |
+| ✨ **35 built-in scenes** | Ocean, Fireplace, Party, Sunset, Christmas, … each tile is drawn as a **gradient of the colors that scene cycles through, weighted by how long each color stays on**. Search by name, filter static/dynamic, adjust speed. |
+| 🖥️ **Screen sync** | The bulb follows the dominant color of your screen live, ambilight-style. No extra hardware or dependencies. |
+| ⭐ **Favorites** | Save the current light in one click. Name it, or leave the name empty and it's named for you (e.g. *Fireplace*, *Warm 2700 K*, *Light blue*). Rename and reorder them any time. |
 | ⏰ **Schedules** | Daily programs per weekday: turn on, turn off, apply a favorite, a **30-minute sunrise wake-up**, or a 30-minute fade-out. |
 | 🌙 **Sleep timer** | 15–120 min, optionally dimming gradually until the light goes off. |
 | 🖥️ **System tray** | Lives next to the clock. Right-click for on/off, brightness and favorites; the tray icon takes the bulb's current color. |
 | 🔄 **Always in sync** | Change the light from the phone app or a voice assistant and WiZ Kontrol picks it up within seconds. |
-| 🏠 **Multiple bulbs** | Auto-discovers every WiZ bulb on the network; control one, or all of them at once. Rename them as you like. |
+| 🏠 **Multiple bulbs** | Auto-discovers every WiZ bulb on the network; control one, or all of them at once. Add a bulb by IP if discovery is blocked, rename or remove bulbs as you like. |
+| 🔔 **Update notice** | Optionally checks GitHub for a newer release at startup and tells you; it never downloads or installs anything by itself. |
 | 🚀 **Start with Windows** | Optional, starts quietly in the tray. Single-instance: launching it again just brings the window back. |
 | 🌍 **10 languages** | English, Türkçe, Deutsch, Español, Français, Italiano, Português, Русский, 中文, 日本語 — picked automatically from your Windows language, switchable in Settings. Scene names are translated too. |
 
@@ -112,6 +114,12 @@ UDP is unreliable by nature, so every command is retried with a short timeout, a
 
 </details>
 
+### Screen sync
+
+About 12 times a second the app shrinks the selected display to a tiny 32×18 sample with Windows GDI, picks the dominant color (saturated pixels count more, so gray UI and black bars don't wash it out), smooths it, and sends it to the bulb over UDP. It is deliberately light: about 20 % of one CPU core and no additional RAM on a 2560×1440 display. Any other command takes over from the sync, and stopping it restores the previous light.
+
+Limitations: DRM-protected video (Netflix etc.) and some exclusive-fullscreen games read as black, the bulb applies its own short color fade, and one bulb shows one color, not separate zones.
+
 ### What works offline vs. what needs the cloud
 
 | ✅ Works locally (this app) | ☁️ Still needs the WiZ app |
@@ -166,6 +174,8 @@ Pushing a `v*` tag builds the exe in GitHub Actions and attaches it to a release
 wizkontrol/
 ├── protocol.py   # UDP protocol: wiz_request, discover, Sender (coalescing background sender)
 ├── colors.py     # Kelvin / HSV ↔ bulb channels, mode detection, auto-naming
+├── screensync.py # Screen capture, dominant color, sync loop
+├── updates.py    # New-version check against GitHub Releases
 ├── i18n.py       # UI strings & scene names in 10 languages, Windows language detection
 ├── scenes.py     # Scene list, per-scene color palettes & weights, presets
 ├── graphics.py   # App icon, color wheel, gradient scene tiles (Pillow)
@@ -182,7 +192,6 @@ Every string in [`i18n.py`](wizkontrol/i18n.py) is a tuple with one entry per la
 ## Roadmap
 
 - [ ] Global hotkeys (e.g. <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>L</kbd> to toggle)
-- [ ] Screen-color sync (ambilight-style)
 - [ ] Bulb groups / rooms
 - [ ] Light theme
 

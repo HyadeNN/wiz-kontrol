@@ -6,11 +6,13 @@ import sys
 CONFIG_DIR = os.path.join(os.environ.get("APPDATA", os.path.expanduser("~")), "WizKontrol")
 CONFIG_PATH = os.path.join(CONFIG_DIR, "config.json")
 ICON_PATH = os.path.join(CONFIG_DIR, "icon.ico")
+LOG_PATH = os.path.join(CONFIG_DIR, "wizkontrol.log")
 RUN_KEY = r"Software\Microsoft\Windows\CurrentVersion\Run"
 
 
 def load_config():
-    cfg = {"bulbs": {}, "selected": None, "favorites": [], "schedules": [], "close_to_tray": True}
+    cfg = {"bulbs": {}, "hidden": [], "selected": None, "favorites": [], "schedules": [], "close_to_tray": True,
+           "check_updates": True, "sync": {"monitor": 0, "smoothing": "balanced", "vivid": True}}
     try:
         with open(CONFIG_PATH, encoding="utf-8") as f:
             cfg.update(json.load(f))

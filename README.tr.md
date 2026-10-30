@@ -31,12 +31,14 @@ WiZ'in Android ve iOS uygulamaları var, ama **Windows için resmi bir uygulamas
 | 🌡️ **Ayarlanabilir beyaz** | Canlı renk gradyanlı 2200 K – 6500 K kaydırıcısı ve *Mum / Sıcak / Doğal / Gün ışığı / Soğuk* hazır ayarları. |
 | 🎨 **Renk çarkı** | Ton + doygunluk çarkı ve hızlı renkler. Pastel tonlar ampulün soğuk beyaz kanalını kullanır; soluk değil temiz görünür. |
 | ✨ **35 hazır sahne** | Okyanus, Şömine, Parti, Gün batımı, Noel… Her kutucuk, **sahnenin döngüdeki renklerinden, her rengin ekranda kalma süresiyle orantılı bir gradyan** olarak çizilir. Hız ayarlanabilir. |
-| ⭐ **Favoriler** | O anki ışığı tek tıkla kaydet. Ad vermek isteğe bağlı; boş bırakırsan otomatik adlandırılır (ör. *Şömine*, *Sıcak 2700 K*, *Açık mavi*). |
+| 🖥️ **Ekran senkronu** | Ampul, ekrandaki baskın rengi ambilight gibi canlı takip eder. Ek donanım gerekmez. DRM korumalı videolar siyah okunabilir. |
+| ⭐ **Favoriler** | O anki ışığı tek tıkla kaydet. Ad vermek isteğe bağlı; boş bırakırsan otomatik adlandırılır (ör. *Şömine*, *Sıcak 2700 K*, *Açık mavi*). İstediğin zaman yeniden adlandır ve sırala. |
+| 🔔 **Güncelleme bildirimi** | İsteğe bağlı olarak açılışta GitHub'dan yeni sürümü denetler ve haber verir; kendiliğinden hiçbir şey indirmez veya kurmaz. |
 | ⏰ **Programlar** | Gün gün seçilebilen günlük programlar: aç, kapat, favori uygula, **30 dakikalık gün doğumu uyanması** ya da 30 dakikada yavaşça kapatma. |
 | 🌙 **Uyku zamanlayıcısı** | 15–120 dk; istersen ışık kapanana kadar yavaşça kısılır. |
 | 🖥️ **Sistem tepsisi** | Saatin yanında durur. Sağ tıkla: aç/kapat, parlaklık, favoriler. Tepsi simgesi ampulün o anki rengini alır. |
 | 🔄 **Hep senkron** | Işığı telefondan ya da sesli asistandan değiştirsen bile uygulama birkaç saniye içinde görür. |
-| 🏠 **Birden çok ampul** | Ağdaki tüm WiZ ampulleri otomatik bulur; birini ya da hepsini birden kontrol et, istediğin gibi adlandır. |
+| 🏠 **Birden çok ampul** | Ağdaki tüm WiZ ampulleri otomatik bulur; birini ya da hepsini birden kontrol et. Arama engelliyse IP ile ekle; ampulleri istediğin gibi adlandır veya listeden kaldır. |
 | 🚀 **Windows ile başlat** | İsteğe bağlı; sessizce tepside açılır. Tek kopya çalışır: tekrar açınca mevcut pencere öne gelir. |
 | 🌍 **10 dil** | Türkçe, English, Deutsch, Español, Français, Italiano, Português, Русский, 中文, 日本語. Windows diline göre otomatik seçilir, Ayar sekmesinden değiştirilebilir. Sahne adları da çevrilidir. |
 

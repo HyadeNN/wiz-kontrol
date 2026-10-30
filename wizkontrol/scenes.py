@@ -55,5 +55,7 @@ SCENE_PALETTES = {
     36: [("#90caf9", 2), ("#e3f2fd", 2), ("#b3e5fc", 1)],
 }
 
+STATIC_SCENES = {6, 11, 12, 13, 14, 15, 16, 17, 18, 19}  # diğerleri zamanla renk değiştirir
+
 TEMP_PRESETS = [("candle", 2200), ("warm", 2700), ("natural", 4000), ("daylight", 5000), ("cool", 6500)]
 QUICK_COLORS = [(0.0, 1.0), (0.07, 1.0), (0.14, 1.0), (0.33, 1.0), (0.5, 1.0), (0.62, 1.0), (0.76, 1.0), (0.9, 0.7)]

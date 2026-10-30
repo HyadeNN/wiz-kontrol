@@ -41,5 +41,8 @@ target-version = "py310"
 select = ["E", "F", "W", "I"]
 ignore = ["E731"]
 
+[tool.ruff.lint.per-file-ignores]
+"wizkontrol/i18n.py" = ["E501"]  # uzun çeviri metinleri
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
